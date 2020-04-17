@@ -27,9 +27,8 @@
 
     h2 {
       font-size: 4rem;
-    }
-
-    
+      margin-bottom: 2rem
+    }  
 }
 
 .answerChoices {
@@ -39,8 +38,13 @@
   margin: .5rem;
   border-radius: 5px;
   background-color: rgb(198, 235, 227);
+
   &:active {
     background-color: chartreuse;
+  }
+
+  &:hover {
+    background-image: url(../assets/tvStatic.gif);
   }
   
 }

@@ -263,7 +263,7 @@ img {
 
 * {
   margin: 0;
-  pasdding: 0;
+  padding: 0;
 }
 
 .btn {
@@ -449,6 +449,7 @@ header {
 
 .questionsContainer h2 {
   font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
 .answerChoices {
@@ -464,6 +465,10 @@ header {
 
 .answerChoices:active {
   background-color: chartreuse;
+}
+
+.answerChoices:hover {
+  background-image: url(../assets/tvStatic.gif);
 }
 
 .answerPrefix {
