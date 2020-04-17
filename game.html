@@ -2,39 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/c9714a9747.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/styles.css">
-    <title>Tv Trivia App - Game Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/c9714a9747.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen:300" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Tv Trivia App - Game Page</title>
 </head>
 
 <body>
-    <section id="game" class="wrapper">
+  <section id="game" class="game ">
+
+    <div class="questionsContainer wrapper">
       <h2 id="question">What color is the sky?</h2>
-        <div id="answerChoices" tabindex="0">
-          <p class="answerPrefix">A</p>
-          <p class="answerText">the sky is blue</p>
-        </div>
-        <div id="answerChoices" tabindex="0">
-          <p class="answerPrefix">B</p>
-          <p class="answerText">the sky is red</p>
-        </div>
-        <div id="answerChoices" tabindex="0">
-          <p class="answerPrefix">C</p>
-          <p class="answerText">the sky is green</p>
-        </div>
-        <div id="answerChoices" tabindex="0">
-          <p class="answerPrefix">D</p>
-          <p class="answerText">the sky is poo brown</p>
-        </div>
-        <a href="results.html" id="results" class="btn">Click here for Results</a>
-    </section>
-    <!-- scripts links -->
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
-        integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
-    <script src="script/script.js"></script>
+      <div id="answerChoices" class="answerChoices" tabindex="0">
+        <p class="answerPrefix">A</p>
+        <p class="answerText">the sky is blue</p>
+      </div>
+      <div id="answerChoices" class="answerChoices" tabindex="0">
+        <p class="answerPrefix">B</p>
+        <p class="answerText">the sky is red</p>
+      </div>
+      <div id="answerChoices" class="answerChoices" tabindex="0">
+        <p class="answerPrefix">C</p>
+        <p class="answerText">the sky is green</p>
+      </div>
+      <div id="answerChoices" class="answerChoices" tabindex="0">
+        <p class="answerPrefix">D</p>
+        <p class="answerText">the sky is poo brown</p>
+      </div>
+    </div>
+
+    <a href="results.html" id="results" class="btn">Click here for Results</a>
+  </section>
+  <!-- scripts links -->
+  <script src='https://code.jquery.com/jquery-3.4.0.min.js'
+    integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+  <script src="script/script.js"></script>
 </body>
 
 </html>
