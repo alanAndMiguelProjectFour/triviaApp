@@ -63,3 +63,46 @@ img {
 
 // font-family: 'Noto Serif', serif;
 // font-size: 16px;
+
+// .container {
+//   margin: 10px;
+//   width: 200px;
+//   position: relative;
+//    overflow: hidden;
+//    &:hover .shine {
+//        transform: skewX(20deg) translateX(300px);
+//     }
+// }
+
+// .btn {
+//     box-shadow: 3px 3px 2px #000;
+//     color: black;
+//     text-decoration: none;
+//     border: 2px solid #000;
+//     padding: 1.5rem 4rem;
+//     font-size: 2.2rem;
+//     background-color: #D76735;
+//     border-radius: 5px;
+//     transition: background .3s linear; 
+//     // width: 50%;
+
+//     &:hover,
+//     &:focus {
+//         background-color:#8FB0A9;
+//     }
+//     &:active {
+//         // transform: scale(1.1);
+//         box-shadow: none;
+//     }
+// } 
+
+// .shine {
+//   position: absolute;
+//   top: 32px;
+//   left: -70px;
+//   height: 80px;
+//   width: 50px;
+//   background: rgba(255, 255, 255, 0.4);
+//   transition: all .3s linear;
+//   transform: skewX(20deg) translateX(0);
+// }

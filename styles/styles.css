@@ -467,10 +467,6 @@ header {
   background-color: chartreuse;
 }
 
-.answerChoices:hover {
-  background-image: url(../assets/tvStatic.gif);
-}
-
 .answerPrefix {
   padding-right: 1rem;
   font-weight: 700;
