@@ -322,7 +322,7 @@ header {
   font-family: 'Noto Serif', serif;
   -webkit-animation: chill 2s;
           animation: chill 2s;
-  z-index: 2;
+  text-align: center;
 }
 
 @-webkit-keyframes chill {
