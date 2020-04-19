@@ -4,6 +4,7 @@
 let score = 0;
 let mainQuestion = 0;
 const triviaApp = {};
+const totalQuestions = 10;
 
 // triviaApp.question = $('#question').
 triviaApp.userChoice = $('#answerChoices')
@@ -11,11 +12,13 @@ triviaApp.userChoice = $('#answerChoices')
 // triviaApp.restart = $('#restart');
 triviaApp.apiUrl = `https://opentdb.com/api.php`;
 
+triviaApp.storeQuestions = [] // empty array to store ajax request into.
 
-triviaApp.nextQuestion = () => {
+triviaApp.nextQuestion = (triviaArray2) => {
     mainQuestion++;
-    triviaApp.getQuestions();
-    console.log(mainQuestion);
+    // console.log(triviaArray2)
+    triviaApp.createQuestions(triviaArray2);
+    // console.log(mainQuestion);
 };
 
 // get data from the trivia API - ajax request
@@ -33,82 +36,78 @@ triviaApp.getQuestions = () => {
   })
   .then((result)=> {
     const triviaArray = result;
-    triviaApp.showQuestions(triviaArray)
-    // console.log(triviaArray.results[0])
-    return result;
-  }).fail((error) => {
+    triviaApp.storeQuestions.push(triviaArray);
+    triviaApp.createQuestions(triviaApp.storeQuestions)
+}).fail((error) => {
     console.log(error);
-  })
+})
 }
-triviaApp.showQuestions = (triviaArray2) => {
+    
+    triviaApp.createQuestions = (triviaArray2) => {
+        // const totalQuestions = triviaArray2[i].results.length;
+        if (mainQuestion == totalQuestions - 1) {
+            $('#results').html('finish');
+            console.log('hi')
+        };
 
-    if (mainQuestion == triviaArray2.results.length - 1) {
-        $('#results').html('finish');
-        console.log('hi')
-    };
-
-
-    if (mainQuestion == triviaArray2.results.length) {
-        $('#question').hide();
-        $('#answerChoices1').hide()
-        $('#answerChoices2').hide()
-        $('#answerChoices3').hide()
-        $('#answerChoices4').hide()
-        $('#restart').show()
-        $('#information').html(`
+        if (mainQuestion == totalQuestions) {
+            $('#question').hide();
+            $('#answerChoices1').hide()
+            $('#answerChoices2').hide()
+            $('#answerChoices3').hide()
+            $('#answerChoices4').hide()
+            $('#restart').show()
+            $('#information').html(`
             <h1>Congratulations Alan! You got ${score}/10!</h1>
-        `);
-        console.log('hi, this is the last question.');
-    };
+            `);
+            console.log('hi, this is the last question.');
+        };
 
-    const question = triviaArray2.results[0].question;
-    const correctAnswer = triviaArray2.results[0].correct_answer;
-    const incorrectAnswer1 = triviaArray2.results[0].incorrect_answers[0];
-    const incorrectAnswer2 = triviaArray2.results[0].incorrect_answers[1];
-    const incorrectAnswer3 = triviaArray2.results[0].incorrect_answers[2];
-    const newArray = [
-        answer1 = correctAnswer,
-        answer2 = incorrectAnswer1,
-        answer3 = incorrectAnswer2,
-        answer4 = incorrectAnswer3,
-    ]
-
-
-    // ALAN return 
-    // triviaApp.shuffleChoices = function (arr) {
-    //     for (let i = arr.length - 1; 1 > 0; i--)
-    // }
-
-    const triviaEl = `
+        for (let i = 0; i <= 9; i++) {
+            
+            // console.log(triviaArray2)
+            const questions = triviaArray2[0].results[i].question;
+            const answer1 = triviaArray2[0].results[i].correct_answer;
+            const answer2 = triviaArray2[0].results[i].incorrect_answers[0];
+            const answer3 = triviaArray2[0].results[i].incorrect_answers[1];
+            const answer4 = triviaArray2[0].results[i].incorrect_answers[2];
+            
+            const triviaEl = `
                 <div class="piece">
-                    <h2>${question}</h2>
+                    <h2>${questions}</h2>
                 </div>
                 `;
-    const triviaA = `<p>${correctAnswer}</p>`
-    const triviaB = `<p>${incorrectAnswer1}</p>`
-    const triviaC = `<p>${incorrectAnswer2}</p>`
-    const triviaD = `<p>${incorrectAnswer3}</p>`
-    $('#question').html(triviaEl);
-    $('.answerText1').html(triviaA);
-    $('.answerText2').html(triviaB);
-    $('.answerText3').html(triviaC);
-    $('.answerText4').html(triviaD);
-    // console.log(triviaArray2.results);
-};
+            const triviaA = `<p>${answer1}</p>`
+            const triviaB = `<p>${answer2}</p>`
+            const triviaC = `<p>${answer3}</p>`
+            const triviaD = `<p>${answer4}</p>`
+            $('#question').html(triviaEl);
+            $('.answerText1').html(triviaA);
+            $('.answerText2').html(triviaB);
+            $('.answerText3').html(triviaC);
+            $('.answerText4').html(triviaD);
+        }
+                $('#answerChoices').on('click', function(triviaArray2){
+                    // console.log(triviaArray2)
+                    triviaApp.nextQuestion(triviaArray2)
+                })
+        
+        
+    }
+    
 
-    // console.log(newArray)
-$('#answerChoices1').on('click', function () {
-    triviaApp.nextQuestion();
-});
-$('#answerChoices2').on('click', function () {
-    triviaApp.nextQuestion();
-});
-$('#answerChoices3').on('click', function () {
-    triviaApp.nextQuestion();
-});
-$('#answerChoices4').on('click', function () {
-    triviaApp.nextQuestion();
-});
+// $('#answerChoices').on('click', function () {
+//     triviaApp.nextQuestion();
+// });
+// $('#answerChoices2').on('click', function () {
+//     triviaApp.nextQuestion();
+// });
+// $('#answerChoices3').on('click', function () {
+//     triviaApp.nextQuestion();
+// });
+// $('#answerChoices4').on('click', function () {
+//     triviaApp.nextQuestion();
+// });
 
 
 // - when user clicks on reset button, mainQuestion == 0, score is empty, and reload screen. 
@@ -147,3 +146,5 @@ $(function () {
 //         console.log(error);
 //     })
 // }
+//
+
