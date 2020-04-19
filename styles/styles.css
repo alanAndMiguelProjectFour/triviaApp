@@ -282,6 +282,8 @@ img {
 
 .btn:hover, .btn:focus {
   background-color: #8FB0A9;
+  -webkit-transform: translateY(0.25rem);
+          transform: translateY(0.25rem);
 }
 
 .btn:active {
