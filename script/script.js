@@ -16,31 +16,33 @@ triviaApp.storeQuestions = [] // empty array to store ajax request into.
 
 triviaApp.nextQuestion = (triviaArray2) => {
     mainQuestion++;
-    // console.log(triviaArray2)
+    
+    console.log(triviaArray2)
     triviaApp.createQuestions(triviaArray2);
     // console.log(mainQuestion);
 };
 
+console.log(triviaApp.storeQuestions)
 // get data from the trivia API - ajax request
 
 triviaApp.getQuestions = () => {
-  $.ajax ({
-      url: triviaApp.apiUrl,
-      method: 'GET',
-      dataType: 'json',
-      data: {
-        amount: 10,
-        category: 14,
-        type: 'multiple',
-      }
-  })
-  .then((result)=> {
-    const triviaArray = result;
-    triviaApp.storeQuestions.push(triviaArray);
-    triviaApp.createQuestions(triviaApp.storeQuestions)
-}).fail((error) => {
-    console.log(error);
-})
+    $.ajax ({
+        url: triviaApp.apiUrl,
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            amount: 10,
+            category: 14,
+            type: 'multiple',
+        }
+    })
+    .then((result)=> {
+        const triviaArray = result;
+        triviaApp.storeQuestions.push(triviaArray);
+        triviaApp.createQuestions(triviaApp.storeQuestions)
+    }).fail((error) => {
+        console.log(error);
+    })
 }
     
     triviaApp.createQuestions = (triviaArray2) => {
@@ -65,12 +67,14 @@ triviaApp.getQuestions = () => {
 
         for (let i = 0; i <= 9; i++) {
             
-            // console.log(triviaArray2)
             const questions = triviaArray2[0].results[i].question;
             const answer1 = triviaArray2[0].results[i].correct_answer;
             const answer2 = triviaArray2[0].results[i].incorrect_answers[0];
             const answer3 = triviaArray2[0].results[i].incorrect_answers[1];
             const answer4 = triviaArray2[0].results[i].incorrect_answers[2];
+            console.log(questions)
+            
+
             
             const triviaEl = `
                 <div class="piece">
@@ -87,9 +91,10 @@ triviaApp.getQuestions = () => {
             $('.answerText3').html(triviaC);
             $('.answerText4').html(triviaD);
         }
-                $('#answerChoices').on('click', function(triviaArray2){
-                    // console.log(triviaArray2)
-                    triviaApp.nextQuestion(triviaArray2)
+                $('#answerChoices').on('click', function(query){
+                    console.log('hi gaby')
+                    // console.log(query)
+                    triviaApp.nextQuestion()
                 })
         
         
@@ -108,7 +113,6 @@ triviaApp.getQuestions = () => {
 // $('#answerChoices4').on('click', function () {
 //     triviaApp.nextQuestion();
 // });
-
 
 // - when user clicks on reset button, mainQuestion == 0, score is empty, and reload screen. 
 // - ALAN* when the user clicks restart button, it refreshes the GAME.HTML, not reloads to main title. Idk if thats something we wanted, or if we wanted it to reload to main title page.
