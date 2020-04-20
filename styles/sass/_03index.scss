@@ -1,30 +1,30 @@
 header {
+  // background settings
   background-color: #f2d8b3;
   height: 100vh;
+  // flex properties
   display: flex;
   justify-content: center;
 }
+
 .headerContent {
-  // - flex properties -
+  // flex properties
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  // header h1 stylings
+
+  // index h1
   h1 {
+    // font styling
     font-size: 10rem;
-    // font-family: 'Ruda', sans-serif;
-    // font-family: 'Roboto Slab', serif;
-    // font-family: 'Oxygen', sans-serif;
-    font-family: 'Noto Serif', serif;
+    text-align: center;
+    // animation
     animation: chill 2s;
-    // position: absolute;
-    z-index: 2;
   }
 }
 
-// animate h1
+// animation keyframes for h1
 @keyframes chill {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(1px, 1px) scale(1.3); }

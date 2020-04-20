@@ -1,3 +1,5 @@
+// global stylings and utility classes
+
 html {
     font-size: 62.5%;
 }
@@ -26,83 +28,37 @@ img {
   padding: 0;
 }
 
+// global button stylings / after effects
+
 .btn {
-
-    color: black;
-    // text-transform: uppercase;
-    text-decoration: none;
-    border: 2px solid #000;
-    padding: 1.5rem 4rem;
+    // btn text settings
+    color: #000;
     font-size: 2.2rem;
+    text-decoration: none;
+    // color/dimensions/padding
     background-color: #D76735;
-    border-radius: 5px;
     box-shadow: 3px 3px 2px #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 1.5rem 4rem;
+    //animation
     transition: all .5s;
-    // width: 50%;
-
+    // hover / focus states
     &:hover,
     &:focus {
         background-color:#8FB0A9;
+        transform: translateY(.25rem);
     }
+    // active state
     &:active {
-        // transform: scale(1.1);
         box-shadow: none;
     }
 } 
 
+// heading font
 
-//font-family: 'Ruda', sans-serif;
-// font-size: 48px;
-
-// font-family: 'Roboto Slab', serif;
-// font-size: 16px;
-
-
-// font-family: 'Oxygen', sans-serif;
-// font-size: 46px;
-
-// font-family: 'Noto Serif', serif;
-// font-size: 16px;
-
-// .container {
-//   margin: 10px;
-//   width: 200px;
-//   position: relative;
-//    overflow: hidden;
-//    &:hover .shine {
-//        transform: skewX(20deg) translateX(300px);
-//     }
-// }
-
-// .btn {
-//     box-shadow: 3px 3px 2px #000;
-//     color: black;
-//     text-decoration: none;
-//     border: 2px solid #000;
-//     padding: 1.5rem 4rem;
-//     font-size: 2.2rem;
-//     background-color: #D76735;
-//     border-radius: 5px;
-//     transition: background .3s linear; 
-//     // width: 50%;
-
-//     &:hover,
-//     &:focus {
-//         background-color:#8FB0A9;
-//     }
-//     &:active {
-//         // transform: scale(1.1);
-//         box-shadow: none;
-//     }
-// } 
-
-// .shine {
-//   position: absolute;
-//   top: 32px;
-//   left: -70px;
-//   height: 80px;
-//   width: 50px;
-//   background: rgba(255, 255, 255, 0.4);
-//   transition: all .3s linear;
-//   transform: skewX(20deg) translateX(0);
-// }
+h1,
+h2,
+h3 {
+    font-family: 'Noto Serif', serif;
+}
