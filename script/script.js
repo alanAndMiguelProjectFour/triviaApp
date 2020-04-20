@@ -14,11 +14,10 @@ triviaApp.apiUrl = `https://opentdb.com/api.php`;
 
 triviaApp.storeQuestions = [] // empty array to store ajax request into.
 
-triviaApp.nextQuestion = (triviaArray2) => {
+triviaApp.nextQuestion = (info) => {
     mainQuestion++;
-    
-    console.log(triviaArray2)
-    triviaApp.createQuestions(triviaArray2);
+    // console.log(info)
+    triviaApp.createQuestions();
     // console.log(mainQuestion);
 };
 
@@ -72,7 +71,7 @@ triviaApp.getQuestions = () => {
             const answer2 = triviaArray2[0].results[i].incorrect_answers[0];
             const answer3 = triviaArray2[0].results[i].incorrect_answers[1];
             const answer4 = triviaArray2[0].results[i].incorrect_answers[2];
-            console.log(questions)
+            // console.log(questions)
             
 
             
@@ -91,13 +90,26 @@ triviaApp.getQuestions = () => {
             $('.answerText3').html(triviaC);
             $('.answerText4').html(triviaD);
         }
-                $('#answerChoices').on('click', function(query){
-                    console.log('hi gaby')
-                    // console.log(query)
-                    triviaApp.nextQuestion()
-                })
-        
-        
+            $('#answerChoices1').on('click', function(triviaArray2){
+                console.log('hi alan1')
+                // console.log(query)
+                triviaApp.createQuestions(triviaArray2)
+            })
+            $('#answerChoices2').on('click', function(triviaArray2){
+                console.log('hi alan2')
+                // console.log(query)
+                triviaApp.createQuestions(triviaArray2)
+            })
+            $('#answerChoices3').on('click', function(triviaArray2){
+                console.log('hi alan3')
+                // console.log(query)
+                triviaApp.createQuestions(triviaArray2)
+            });
+            $('#answerChoices4').on('click', function(triviaArray2){
+                console.log('hi alan4')
+                // console.log(query)
+                triviaApp.createQuestions(triviaArray2)
+            });
     }
     
 
@@ -150,5 +162,3 @@ $(function () {
 //         console.log(error);
 //     })
 // }
-//
-
