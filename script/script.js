@@ -58,7 +58,7 @@ triviaApp.getQuestions = () => {
             $('#answerChoices3').hide()
             $('#answerChoices4').hide()
             $('#restart').show()
-            $('#information').html(`
+            $('#gameResults').html(`
             <h1>Congratulations Alan! You got ${score}/10!</h1>
             `);
             console.log('hi, this is the last question.');
