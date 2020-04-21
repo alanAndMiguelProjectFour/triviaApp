@@ -431,7 +431,31 @@ header {
   margin-top: 3rem;
 }
 
-.questionsContainer {
+.questionContainer {
+  background-color: #fafafac5;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3rem;
+  margin: 1rem;
+  border: .3rem solid #000;
+  border-radius: .5rem;
+  text-align: center;
+  letter-spacing: .12rem;
+}
+
+.questionContainer h2 {
+  font-size: 4rem;
+}
+
+.answerChoiceContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,39 +466,44 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  border: 2px solid black;
-  background-color: #8FB0A9;
-  border-radius: 10px;
-  padding: 5rem;
-  width: 55%;
-  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 1rem;
 }
 
-.questionsContainer h2 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-}
-
-.answerChoices {
+.possibleAnswer {
+  background-color: #fafafac5;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 3px solid #000;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: .3rem;
   padding: 1rem;
-  margin: .5rem;
-  border-radius: 5px;
-  background-color: #c6ebe3;
+  border: .3rem solid transparent;
+  font-size: 3rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
-.answerChoices:active {
+.possibleAnswer:hover, .possibleAnswer:focus {
+  border: .3rem solid #000;
+  -webkit-transform: translateY(0.1rem);
+          transform: translateY(0.1rem);
+}
+
+.possibleAnswer p {
+  width: 100%;
+  text-align: center;
+}
+
+.possibleAnswer.correct {
   background-color: chartreuse;
-}
-
-.answerPrefix {
-  padding-right: 1rem;
-  font-weight: 700;
-  font-size: 2rem;
 }
