@@ -33,7 +33,7 @@
   }
   // if correct change background to green
   &.correct {
-    background-color: #7fff00;
+    background-color: #cbf7a0;
   }
   // if incorrect background
   &.incorrect{
@@ -78,19 +78,48 @@
     text-align: center;
   }
 
-  &.correct {
-    background-color: chartreuse;
-  }
-  
-  
 }
 
 .playerResults {
-  background-color: cyan;
+  background-image: url(../assets/tvStatic.gif);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-
+  margin: 0 auto;
+  // hides at beginning of game
   &.hide {
     display: none;
   }
-}
+  
+  }
+
+  .resultContainer {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  // width: 60%;
+  background-color: #f2d8b3;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 2px solid #000;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 5rem 0rem;
+    // span styling
+    span {
+      // color: darkgoldenrod;
+      text-transform: uppercase;
+      font-size: 4rem;
+      display: block;
+    }
+  }
+
+  }
+
+
 

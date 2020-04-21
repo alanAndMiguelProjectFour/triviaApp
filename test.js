@@ -7,13 +7,11 @@ triviaApp.data = [];
 triviaApp.questions = [];
 triviaApp.incorrect = [];
 triviaApp.correct = [];
-// this vairable determines what question the player is currently on
-triviaApp.questionCounter = 0;
+// this variable determines what question the player is currently on
+triviaApp.questionCounter = 9;
 triviaApp.lastQuestion = 10;
 // this keeps track of the amount of right questions the player has selected
 triviaApp.playerScore = 0;
-// users answer choice
-triviaApp.userChoice;
 // API URL
 triviaApp.apiUrl = `https://opentdb.com/api.php`;
 
@@ -87,39 +85,44 @@ triviaApp.askQuestion = () => {
 
 // submits answer on user selection
 triviaApp.pickAnswer = () => {
+  console.log(triviaApp.correct[triviaApp.questionCounter]);
   // get a value from players
   $('.possibleAnswers').on('click keypress', function(e) {
+    
     // immediately turns off event handler to prevent over clicking of answers/ in which makes questions counter skip questions
     $('.possibleAnswers').unbind('click keypress')
+   
+    // if else statement will determine if answer is right by comparing data set values if right then playerScore++ and background changes to green, if wrong background changes to red. 
     
     if (this.dataset.answer === triviaApp.correct[triviaApp.questionCounter] ) {
-      $('.questionContainer').toggleClass('correct')
+      $('.questionContainer').toggleClass('correct');
       // add to player score if correct.
-      triviaApp.playerScore++;
-      console.log(triviaApp.playerScore);      
+      triviaApp.playerScore++;     
     } else {
       $('.questionContainer').toggleClass('incorrect');
     }
-    // if else statement will determine if answer is right by comparing data set values if right then playerScore++ if wrong then playerscore is not given anything, else questionCounter++ then call next question in both circumstances!
-    
-    
-    console.log(this, this.dataset.answer === triviaApp.correct[triviaApp.questionCounter],);
-    // $('.possibleAnswer').toggleClass('correct')
+
+    // set timeout to prevent question from changing immediatly and not showing correct/incorrect background colour change.
     setTimeout(()=> {
+      // adds + 1 to questions counter to itterate through questions
       triviaApp.questionCounter++;
+
       // toggles classes background back to normal
       $('.questionContainer').removeClass('incorrect')
       $('.questionContainer').removeClass('correct')
-      console.log(triviaApp.questionCounter);
+
       // calls for next
       triviaApp.askQuestion()
-    },1000)
-  })
+    },1500);
+  });
 
 }
 
 triviaApp.gameOver = () => {
+  // page slides up and hide on last player choice
   $('.game').slideUp(1000);
+  // show results page
+  $('.playerResults').toggleClass('hide');
   // if (triviaApp.playerScore <= 3) {
   //   console.log('you suck!')
   // } if else (triviaApp.playerScore <= 7) {
@@ -127,12 +130,19 @@ triviaApp.gameOver = () => {
   // } else {
   //   console.log('you're dope!)
   // }
-  $('.playerResults').toggleClass('hide');
+  $('.playerResults').html(
+    `
+    <div class="resultContainer">
+      <img src="https://media.giphy.com/media/3ohhwH6yMO7ED5xc7S/giphy.gif" alt="Thumbs down">
+      <h2><span>Congrats!</span> You got ${triviaApp.playerScore}/10!</h2>
+      <a href="index.html" class="btn">Try Again?</a>
+    </div>
+    `
+  )
   console.log(`game OVA!! you got ${triviaApp.playerScore}/10!`);
 }
-
+{/*<img src="https://media.giphy.com/media/3ohhwH6yMO7ED5xc7S/giphy.gif" alt="Thumbs down">*/}
 // nextQuestion will check for correctness, and present next question!
-
 
 
 
@@ -140,6 +150,3 @@ triviaApp.gameOver = () => {
 $(function() {
   triviaApp.getQuestions();
 });
-
-
-// miguel I was able to fix the functionality and make the array load properly so we could use the data! I was also able to append the info to the dom and make the correct answer and incorrect answer a single array then randomize them with.sort then I assigned them data values equaul to the current questiin value! its looking good. the question counter will then iterate trhough all qoustions!! i also made the design a bit cleaner becayse i had to change the names on the html to fit the js info from the array inside. Take a look and let me know what you think - ALAN

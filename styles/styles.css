@@ -297,6 +297,10 @@ h3 {
   font-family: 'Noto Serif', serif;
 }
 
+p {
+  font-family: 'Ruda' , sans-serif;
+}
+
 header {
   background-color: #f2d8b3;
   height: 100vh;
@@ -456,7 +460,7 @@ header {
 }
 
 .questionContainer.correct {
-  background-color: #7fff00;
+  background-color: #cbf7a0;
 }
 
 .questionContainer.incorrect {
@@ -512,15 +516,51 @@ header {
   text-align: center;
 }
 
-.possibleAnswer.correct {
-  background-color: chartreuse;
-}
-
 .playerResults {
-  background-color: cyan;
+  background-image: url(../assets/tvStatic.gif);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
+  margin: 0 auto;
 }
 
 .playerResults.hide {
   display: none;
+}
+
+.resultContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f2d8b3;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 2px solid #000;
+  text-align: center;
+}
+
+.resultContainer h2 {
+  font-size: 2.5rem;
+  margin: 5rem 0rem;
+}
+
+.resultContainer h2 span {
+  text-transform: uppercase;
+  font-size: 4rem;
+  display: block;
 }
