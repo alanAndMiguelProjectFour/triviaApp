@@ -71,8 +71,10 @@
   &:focus {
     border: .3rem solid #000;
     transform: translateY(.1rem);
+    cursor: pointer;
   }
 
+  // paragraph styles
   p {
     width: 100%;
     text-align: center;

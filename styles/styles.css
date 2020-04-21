@@ -509,6 +509,7 @@ header {
   border: .3rem solid #000;
   -webkit-transform: translateY(0.1rem);
           transform: translateY(0.1rem);
+  cursor: pointer;
 }
 
 .possibleAnswer p {
