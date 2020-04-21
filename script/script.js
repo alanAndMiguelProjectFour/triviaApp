@@ -8,6 +8,12 @@ const totalQuestions = 10;
 triviaApp.preppedArray;
 triviaApp.data = [];
 
+triviaApp.gifs = [
+    'gif1': './assets/bad.gif',
+    'gif2': './assets/mediocre.gif',
+    'gif3': './assets/good.gift'
+]
+
 // triviaApp.question = $('#question').
 triviaApp.userChoice = $('#answerChoices')
 // triviaApp.results = $('#results');
