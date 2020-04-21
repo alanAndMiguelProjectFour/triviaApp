@@ -66,6 +66,7 @@ triviaApp.askQuestion = () => {
 
   // create a new array of answers with both incorrect and correct answers
   possibleAnswerChoices = incorrectAnswersArray.concat([currentAnswer])
+  // shuffles answers
   possibleAnswerChoices.sort()
 
   console.log('All possible answers!',possibleAnswerChoices);
@@ -77,6 +78,8 @@ triviaApp.askQuestion = () => {
     //append choices to dom
     $(`#answerOpt-${i}`).html(possibleAnswerChoices[i -1])
   }
+  // call pick answer
+  triviaApp.pickAnswer()
 
 };
 
@@ -85,17 +88,24 @@ triviaApp.pickAnswer = () => {
   // get a value from players
   $('.possibleAnswers').on('click keypress', function(e) {
     // if else statement will determine if answer is right by comparing data set values if right then playerScore++ if wrong then playerscore is not given anything, else questionCounter++ then call next question in both circumstances!
-    console.log(this.dataset.answer === triviaApp.correct[triviaApp.questionCounter],);
+
+    
+    console.log(this, this.dataset.answer === triviaApp.correct[triviaApp.questionCounter],);
     // $('.possibleAnswer').toggleClass('correct')
     setTimeout(()=> {
       triviaApp.questionCounter++;
       console.log(triviaApp.questionCounter);
+      // calls for next
+      triviaApp.askQuestion()
     },3000)
   })
 
 }
 
-triviaApp.pickAnswer()
+// nextQuestion will check for correctness, and present next question!
+
+
+
 
 // doc ready function
 $(function() {
