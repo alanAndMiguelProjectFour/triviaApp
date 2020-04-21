@@ -455,6 +455,14 @@ header {
   font-size: 4rem;
 }
 
+.questionContainer.correct {
+  background-color: #7fff00;
+}
+
+.questionContainer.incorrect {
+  background-color: #bb8b8b;
+}
+
 .answerChoiceContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -506,4 +514,13 @@ header {
 
 .possibleAnswer.correct {
   background-color: chartreuse;
+}
+
+.playerResults {
+  background-color: cyan;
+  height: 100vh;
+}
+
+.playerResults.hide {
+  display: none;
 }

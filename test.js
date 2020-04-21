@@ -9,6 +9,7 @@ triviaApp.incorrect = [];
 triviaApp.correct = [];
 // this vairable determines what question the player is currently on
 triviaApp.questionCounter = 0;
+triviaApp.lastQuestion = 10;
 // this keeps track of the amount of right questions the player has selected
 triviaApp.playerScore = 0;
 // users answer choice
@@ -50,8 +51,11 @@ triviaApp.getQuestions = () => {
 
 // appends question to question container
 triviaApp.askQuestion = () => {
+  if (triviaApp.questionCounter == triviaApp.lastQuestion) {
+    console.log('hey');
+    triviaApp.gameOver();
+  }
   // use question/answer current question value to itterate through array of questions
-
   // save the currentQuestion in a variable
   const currentQuestion = triviaApp.questions[triviaApp.questionCounter];
   // save answer in variable
@@ -69,8 +73,6 @@ triviaApp.askQuestion = () => {
   // shuffles answers
   possibleAnswerChoices.sort()
 
-  console.log('All possible answers!',possibleAnswerChoices);
-
   // loop through all answers and put them into individual p tags
   for (let i = 1; i <= possibleAnswerChoices.length; i++) {
     // set dataset value to each choice to verify if correct
@@ -87,19 +89,46 @@ triviaApp.askQuestion = () => {
 triviaApp.pickAnswer = () => {
   // get a value from players
   $('.possibleAnswers').on('click keypress', function(e) {
+    // immediately turns off event handler to prevent over clicking of answers/ in which makes questions counter skip questions
+    $('.possibleAnswers').unbind('click keypress')
+    
+    if (this.dataset.answer === triviaApp.correct[triviaApp.questionCounter] ) {
+      $('.questionContainer').toggleClass('correct')
+      // add to player score if correct.
+      triviaApp.playerScore++;
+      console.log(triviaApp.playerScore);      
+    } else {
+      $('.questionContainer').toggleClass('incorrect');
+    }
     // if else statement will determine if answer is right by comparing data set values if right then playerScore++ if wrong then playerscore is not given anything, else questionCounter++ then call next question in both circumstances!
-
+    
     
     console.log(this, this.dataset.answer === triviaApp.correct[triviaApp.questionCounter],);
     // $('.possibleAnswer').toggleClass('correct')
     setTimeout(()=> {
       triviaApp.questionCounter++;
+      // toggles classes background back to normal
+      $('.questionContainer').removeClass('incorrect')
+      $('.questionContainer').removeClass('correct')
       console.log(triviaApp.questionCounter);
       // calls for next
       triviaApp.askQuestion()
-    },3000)
+    },1000)
   })
 
+}
+
+triviaApp.gameOver = () => {
+  $('.game').slideUp(1000);
+  // if (triviaApp.playerScore <= 3) {
+  //   console.log('you suck!')
+  // } if else (triviaApp.playerScore <= 7) {
+  //   console.log('meh')
+  // } else {
+  //   console.log('you're dope!)
+  // }
+  $('.playerResults').toggleClass('hide');
+  console.log(`game OVA!! you got ${triviaApp.playerScore}/10!`);
 }
 
 // nextQuestion will check for correctness, and present next question!

@@ -31,6 +31,14 @@
   h2 {
     font-size: 4rem;
   }
+  // if correct change background to green
+  &.correct {
+    background-color: #7fff00;
+  }
+  // if incorrect background
+  &.incorrect{
+    background-color: #bb8b8b;
+  }
 }
 
 .answerChoiceContainer {
@@ -74,4 +82,15 @@
     background-color: chartreuse;
   }
   
+  
 }
+
+.playerResults {
+  background-color: cyan;
+  height: 100vh;
+
+  &.hide {
+    display: none;
+  }
+}
+
