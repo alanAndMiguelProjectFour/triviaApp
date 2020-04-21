@@ -36,10 +36,10 @@ triviaApp.gifs = [
   },
 ]
 
-triviaApp.endSong = newAudio('./assets/.sound1.mp3');
+triviaApp.endSong = new Audio('./assets/sound3.mp3');
 
 // this variable determines what question the player is currently on
-triviaApp.questionCounter = 0;
+triviaApp.questionCounter = 9;
 triviaApp.lastQuestion = 10;
 
 // this keeps track of the amount of right questions the player has selected
@@ -133,7 +133,7 @@ triviaApp.pickAnswer = () => {
     }
 
     // set timeout to prevent question from changing immediatly and not showing correct/incorrect background colour change.
-    setTimeout(()=> {
+    setTimeout(() => {
       // adds + 1 to questions counter to itterate through questions
       triviaApp.questionCounter++;
       // toggles classes background back to normal
