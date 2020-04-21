@@ -178,3 +178,14 @@ $(function () {
 //         console.log(error);
 //     })
 // }
+
+
+function playAudio() {
+    let audio;
+    if (triviaApp.questionCounter == triviaApp.lastQuestion) {
+        endSong.play()
+    }
+}
+
+triviaApp.endSong = newAudio ('./assets/.sound1.mp3');
+

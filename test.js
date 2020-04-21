@@ -6,6 +6,7 @@ triviaApp.data = [];
 triviaApp.questions = [];
 triviaApp.incorrect = [];
 triviaApp.correct = [];
+
 // local array of objects
 
 // array of player result pictures
@@ -34,6 +35,8 @@ triviaApp.gifs = [
     alt: "Chris Pratt showing excitement to the camera"
   },
 ]
+
+triviaApp.endSong = newAudio('./assets/.sound1.mp3');
 
 // this variable determines what question the player is currently on
 triviaApp.questionCounter = 0;
@@ -145,6 +148,7 @@ triviaApp.pickAnswer = () => {
 
 // game over function shows results and presents retry button
 triviaApp.gameOver = () => {
+  triviaApp.endSong.play()
   // page slides up and hide on last player choice
   $('.game').slideUp(1000);
   // show results page
