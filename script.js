@@ -143,7 +143,7 @@ triviaApp.pickAnswer = () => {
       $('.questionContainer').removeClass('correct')
       // calls for next
       triviaApp.askQuestion()
-    }, 1500);
+    }, 1000);
   });
 }
 
