@@ -36,10 +36,12 @@ triviaApp.gifs = [
   },
 ]
 
-triviaApp.endSong = new Audio('./assets/sound3.mp3');
+// this variable stores mp3 sounds that will be called when necessary. 
+triviaApp.endSong = new Audio('./assets/sound1.mp3');
+triviaApp.clickSound = new Audio('./assets/sound2.mp3')
 
 // this variable determines what question the player is currently on
-triviaApp.questionCounter = 9;
+triviaApp.questionCounter = 5;
 triviaApp.lastQuestion = 10;
 
 // this keeps track of the amount of right questions the player has selected
@@ -85,7 +87,7 @@ triviaApp.askQuestion = () => {
     triviaApp.gameOver();
   }
 
-  // use question/answer current question value to itterate through array of questions
+  // use question/answer current question value to iterate through array of questions
 
   // save the currentQuestion in a variable
   const currentQuestion = triviaApp.questions[triviaApp.questionCounter];
@@ -119,7 +121,7 @@ triviaApp.askQuestion = () => {
 triviaApp.pickAnswer = () => {
   // get a value from players
   $('.possibleAnswers').on('click keypress', function(e) {
-    
+    triviaApp.clickSound.play()
     // immediately turns off event handler to prevent over clicking of answers/ in which makes questions counter skip questions
     $('.possibleAnswers').unbind('click keypress')
    
@@ -141,7 +143,7 @@ triviaApp.pickAnswer = () => {
       $('.questionContainer').removeClass('correct')
       // calls for next
       triviaApp.askQuestion()
-    },500);
+    }, 1500);
   });
 
 }
@@ -192,3 +194,4 @@ triviaApp.gameOver = () => {
 $(function() {
   triviaApp.getQuestions();
 });
+
