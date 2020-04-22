@@ -2,25 +2,24 @@
 
 .game {
   height: 100vh;
+  background-color:#f2d8b3;
+  // flex properties
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#f2d8b3;
-  .btn {
-      margin-top: 3rem;
-    }
 }
 
 .questionContainer {
   background-color: #fafafac5;
   width: 100%;
+  // flex properties
   display: flex;
   justify-content: center;
   align-items: center;
   //padding and margin
   padding: 3rem;
-  margin: 1rem;
+  margin: 1rem auto;
   //border and border radius
   border: .3rem solid #000;
   border-radius: .5rem;
@@ -35,24 +34,27 @@
   &.correct {
     background-color: #cbf7a0;
   }
-  // if incorrect background
+  // if incorrect change to red
   &.incorrect{
     background-color: #bb8b8b;
   }
 }
 
 .answerChoiceContainer {
+  width: 100%;
+  // flex properties
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 1rem;
+  // margins
+  margin: 1rem auto;
 }
 
 .possibleAnswer {
   background-color: #fafafac5;
   width: 100%;
+  // flex properties
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +76,7 @@
     cursor: pointer;
   }
 
-  // paragraph styles
+  // answer option styles
   p {
     width: 100%;
     text-align: center;
@@ -84,10 +86,12 @@
 
 .playerResults {
   background-image: url(../assets/tvStatic.gif);
+  height: 100vh;
+  // flex properties
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  // margin
   margin: 0 auto;
   // hides at beginning of game
   &.hide {
@@ -97,24 +101,26 @@
   }
 
   .resultContainer {
+  background-color: #f2d8b3;
+  // flex properties
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  // width: 60%;
-  background-color: #f2d8b3;
+  // padding and margin
   padding: 2rem;
   margin: 0 auto;
+  // border styles
   border-radius: 1rem;
   border: 2px solid #000;
+  // text styles
   text-align: center;
 
   h2 {
     font-size: 2.5rem;
-    margin: 5rem 0rem;
+    margin: 3rem 0rem;
+    
     // span styling
     span {
-      // color: darkgoldenrod;
       text-transform: uppercase;
       font-size: 4rem;
       display: block;

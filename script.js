@@ -41,7 +41,7 @@ triviaApp.endSong = new Audio('./assets/sound1.mp3');
 triviaApp.clickSound = new Audio('./assets/sound2.mp3')
 
 // this variable determines what question the player is currently on
-triviaApp.questionCounter = 5;
+triviaApp.questionCounter = 0;
 triviaApp.lastQuestion = 10;
 
 // this keeps track of the amount of right questions the player has selected
@@ -124,7 +124,7 @@ triviaApp.pickAnswer = () => {
     triviaApp.clickSound.play()
     // immediately turns off event handler to prevent over clicking of answers/ in which makes questions counter skip questions
     $('.possibleAnswers').unbind('click keypress')
-   
+
     // if else statement will determine if answer is right by comparing data set values if right then playerScore++ and background changes to green, if wrong background changes to red. 
     if (this.dataset.answer === triviaApp.correct[triviaApp.questionCounter] ) {
       $('.questionContainer').toggleClass('correct');
@@ -134,9 +134,9 @@ triviaApp.pickAnswer = () => {
       $('.questionContainer').toggleClass('incorrect');
     }
 
-    // set timeout to prevent question from changing immediatly and not showing correct/incorrect background colour change.
+    // set timeout to prevent question from changing immediately and not showing correct/incorrect background colour change.
     setTimeout(() => {
-      // adds + 1 to questions counter to itterate through questions
+      // adds + 1 to questions, answers counter to iterate through questions
       triviaApp.questionCounter++;
       // toggles classes background back to normal
       $('.questionContainer').removeClass('incorrect')
@@ -145,7 +145,6 @@ triviaApp.pickAnswer = () => {
       triviaApp.askQuestion()
     }, 1500);
   });
-
 }
 
 // game over function shows results and presents retry button
@@ -165,10 +164,12 @@ triviaApp.gameOver = () => {
   //appends results page to DOM
   $('.playerResults').html(
     `
-    <div class="resultContainer">
-      <img class="resultPic" src="" alt="">
-      <h2><span>Congrats!</span> You got ${triviaApp.playerScore}/10!</h2>
-      <a href="index.html" class="btn">Try Again?</a>
+    <div class="wrapper">
+      <div class="resultContainer">
+        <img class="resultPic" src="" alt="">
+        <h2><span>Congrats!</span> You got ${triviaApp.playerScore}/10!</h2>
+        <a href="index.html" class="btn">Try Again?</a>
+      </div.w>
     </div>
     `
     )
@@ -188,10 +189,11 @@ triviaApp.gameOver = () => {
         $('.resultPic').attr('alt', perfect.alt)
     } 
 } 
-  
+
 
 // doc ready function
 $(function() {
+  // init function 
   triviaApp.getQuestions();
 });
 

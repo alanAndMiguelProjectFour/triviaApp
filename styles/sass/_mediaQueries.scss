@@ -1,0 +1,48 @@
+// Media Queries 
+
+@media (max-width: 715px) {
+  
+  .questionContainer h2{
+    font-size: 3rem;
+  }
+
+  .possibleAnswer p {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 486px){
+    
+  .questionContainer h2{
+    font-size: 2.2rem;
+  }
+
+  .possibleAnswer p {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .headerContent h1 {
+    font-size: 8.5rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+    padding: 1.3rem 3rem;
+  }
+
+  .resultContainer h2 {
+    font-size: 2rem;
+    
+    span {
+    font-size: 3rem;
+    }
+  }
+
+  footer .copyright {
+      font-size: 1.2rem;
+  }
+}
+

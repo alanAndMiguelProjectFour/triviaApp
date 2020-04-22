@@ -413,8 +413,22 @@ header {
   }
 }
 
+footer {
+  background-color: #000;
+  text-align: center;
+}
+
+footer .copyright {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 auto;
+  padding: 1rem 0;
+  font-family: 'Ruda' , sans-serif;
+}
+
 .game {
   height: 100vh;
+  background-color: #f2d8b3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -428,11 +442,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f2d8b3;
-}
-
-.game .btn {
-  margin-top: 3rem;
 }
 
 .questionContainer {
@@ -448,7 +457,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding: 3rem;
-  margin: 1rem;
+  margin: 1rem auto;
   border: .3rem solid #000;
   border-radius: .5rem;
   text-align: center;
@@ -468,6 +477,7 @@ header {
 }
 
 .answerChoiceContainer {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -481,8 +491,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  margin: 1rem;
+  margin: 1rem auto;
 }
 
 .possibleAnswer {
@@ -519,6 +528,7 @@ header {
 
 .playerResults {
   background-image: url(../assets/tvStatic.gif);
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -528,7 +538,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
   margin: 0 auto;
 }
 
@@ -537,6 +546,7 @@ header {
 }
 
 .resultContainer {
+  background-color: #f2d8b3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -547,7 +557,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f2d8b3;
   padding: 2rem;
   margin: 0 auto;
   border-radius: 1rem;
@@ -557,11 +566,48 @@ header {
 
 .resultContainer h2 {
   font-size: 2.5rem;
-  margin: 5rem 0rem;
+  margin: 3rem 0rem;
 }
 
 .resultContainer h2 span {
   text-transform: uppercase;
   font-size: 4rem;
   display: block;
+}
+
+@media (max-width: 715px) {
+  .questionContainer h2 {
+    font-size: 3rem;
+  }
+  .possibleAnswer p {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 486px) {
+  .questionContainer h2 {
+    font-size: 2.2rem;
+  }
+  .possibleAnswer p {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .headerContent h1 {
+    font-size: 8.5rem;
+  }
+  .btn {
+    font-size: 2rem;
+    padding: 1.3rem 3rem;
+  }
+  .resultContainer h2 {
+    font-size: 2rem;
+  }
+  .resultContainer h2 span {
+    font-size: 3rem;
+  }
+  footer .copyright {
+    font-size: 1.2rem;
+  }
 }
